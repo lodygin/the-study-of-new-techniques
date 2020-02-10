@@ -1,4 +1,4 @@
-// selector string as first argument
+//colcade.js=====================
 var colc = new Colcade('.grid', {
   columns: '.grid-col',
   items: '.grid-item'
