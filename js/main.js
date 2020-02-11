@@ -28,3 +28,30 @@ document.addEventListener('DOMContentLoaded', function () {
     items: '.grid-item'
   });
 }, false);
+
+var rellax = new Rellax('.intro__bg-trees', {
+  speed: -3,
+  center: false,
+  wrapper: null,
+  round: true,
+  vertical: true,
+  horizontal: false
+});
+
+var rellax = new Rellax('.intro__bg-birds', {
+  speed: +1,
+  center: false,
+  wrapper: null,
+  round: true,
+  vertical: true,
+  horizontal: false
+});
+
+var rellax = new Rellax('.intro__title', {
+  speed: +4,
+  center: false,
+  wrapper: null,
+  round: true,
+  vertical: true,
+  horizontal: false
+});

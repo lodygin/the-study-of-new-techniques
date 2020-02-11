@@ -81,11 +81,31 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 //Intro====================================
 .intro {
   min-height: 100vh;
-  background: url('../image/intro/bg-c.jpg') center / cover no-repeat;
+  background: #e7e7e9;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  &__bg-trees {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url('../image/intro/bg-trees.png') center / cover no-repeat;
+  }
+  &__bg-birds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url('../image/intro/bg-birds.png') center / cover no-repeat;
+    z-index: 3;
+  }
   &::before {
     content: '';
     position: absolute;
@@ -95,6 +115,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     top: 0;
     left: 0;
     background-image: linear-gradient(rgba(24, 27, 30, 0) 50%,rgba(24, 27, 30, 1) 100%);
+    z-index: 2;
   }
   &__nav {
     position: absolute;
@@ -174,7 +195,9 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     font-family: "Raleway";
     font-size: 36px;
     color: #000;
+    z-index: 4;
     background-color: rgba(247, 247, 247, 0.7);
+    opacity: 0.9;
     @media (max-width: 767.99px) {
       font-size: 28px;
     }
