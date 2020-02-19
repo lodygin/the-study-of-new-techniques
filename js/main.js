@@ -64,8 +64,10 @@ function scrollAppear(classAppear, screenPos) {
 
 window.onscroll = function() {
   doScroll();
-  scrollAppear('.appear__story-title', 1.3);
-  scrollAppear('.appear__story-wall', 1.5);
+  scrollAppear('.appear__story-title', 1.5);
+  scrollAppear('.appear__story-col1', 1.5);
+  scrollAppear('.appear__story-col2', 1.5);
+  scrollAppear('.appear__story-col3', 1.5);
 }
 
 //Preloader====================================
