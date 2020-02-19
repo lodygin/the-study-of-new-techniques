@@ -17,6 +17,7 @@ html,body{
   line-height: 1;
   font-size: 14px;
   min-width: 320px;
+  overflow: visible;
 }
 input, button, textarea{font-family: inherit;}
 input::-ms-clear{display: none;}
@@ -28,6 +29,9 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 //==============================================
+.body-lock {
+  overflow: hidden;
+}
 .wrapper {
   width: 100%;
   min-height: 100%;
@@ -62,7 +66,7 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 .line2,
 .line3 {
   height: 3px;
-  background: #000;
+  background: #181b1e;
   transition: all 0.3s ease;
 }
 .line1,
@@ -77,6 +81,35 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 }
 .burger-active .line3 {
   transform: rotate(45deg) translate(-5px,-6px);
+}
+.progress-bar {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #181b1e;
+  @media (max-width: 767.99px){
+    display: block;
+  }
+}
+//Appear==============================================
+.appear {
+  &__story-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1.1s all ease-in-out 0.1s;
+  }
+  &__story-wall {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: 1.7s all ease-in 0.3s;
+  }
+}
+.appear {
+  opacity: 1;
+  transform: translate(0px, 0px);
 }
 //Intro====================================
 .intro {
@@ -134,21 +167,20 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
     display: flex;
     justify-content: space-between;
     @media (max-width: 767.99px){
-      width: 60%;
+      width: 100%;
       height: 100vh;
-      display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 20px;
+      padding: 20px 20px 20px 60%;
       position: absolute;
       top: 0;
       right: 0;
-      transform: translateX(100%);
-      background-color: #f7f7f7;
-      transition: transform 0.3s ease-in;
-      overflow: auto;
+      background: linear-gradient(to left, rgba(247, 247, 247, 1) 0%, rgba(247, 247, 247, 0.7) 40%, rgba(247, 247, 247, 0.2) 100%);
+      backdrop-filter: blur(5px);
+      transition: opacity 0.7s ease-in-out;
+      opacity: 0;
       &.list-active {
-        transform: translateX(0%);
+        opacity: 1;
       }
     }
   }

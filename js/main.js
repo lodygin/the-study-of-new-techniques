@@ -1,12 +1,13 @@
-const navSlide = () => {
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('.intro__list');
-  const navLinks = document.querySelectorAll('.intro__item');
+let navSlide = () => {
+  let burger = document.querySelector('.burger');
+  let nav = document.querySelector('.intro__list');
+  let navLinks = document.querySelectorAll('.intro__item');
 
   burger.addEventListener('click', () => {
     //Toggle Nav
     nav.classList.toggle('list-active');
     burger.classList.toggle('burger-active');
+    document.body.classList.toggle('body-lock');
 
     //Animate Links
     navLinks.forEach((link, index) => {
@@ -21,7 +22,7 @@ const navSlide = () => {
 
 navSlide();
 
-//colcade.js=====================
+//colcade.js========================================
 document.addEventListener('DOMContentLoaded', function () {
   var colc = new Colcade('.grid', {
     columns: '.grid-col',
@@ -29,29 +30,48 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 }, false);
 
+//rellax.js===============================================
 var rellax = new Rellax('.intro__bg-trees', {
   speed: -3,
-  center: false,
-  wrapper: null,
-  round: true,
-  vertical: true,
-  horizontal: false
 });
 
 var rellax = new Rellax('.intro__bg-birds', {
   speed: +1,
-  center: false,
-  wrapper: null,
-  round: true,
-  vertical: true,
-  horizontal: false
 });
 
 var rellax = new Rellax('.intro__title', {
   speed: +4,
-  center: false,
-  wrapper: null,
-  round: true,
-  vertical: true,
-  horizontal: false
 });
+
+//ScrollBar==&==Appear===========================================
+function doScroll() {
+  let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
+    docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight,
+    scrolled = (winScroll / docHeight) * 100;
+
+    document.getElementById('porgressBar').style.width = scrolled + '%';
+}
+
+function scrollAppear(classAppear, screenPos) {
+  let blockAppear = document.querySelector(classAppear);
+  let introPosition = blockAppear.getBoundingClientRect().top;
+  let screenPosition = window.innerHeight / screenPos;
+
+  if(introPosition < screenPosition) {
+    blockAppear.classList.add('appear');
+  }
+}
+
+window.onscroll = function() {
+  doScroll();
+  scrollAppear('.appear__story-title', 1.3);
+  scrollAppear('.appear__story-wall', 1.5);
+}
+
+//Preloader====================================
+// let spinnerWrapper = document.querySelector('.spinner-wrapper');
+// window.addEventListener('load', function() {
+//   spinnerWrapper.classList.add('fadeout')
+// }, setTimeout(function() {
+//   spinnerWrapper.parentElement.removeChild(spinnerWrapper);
+// }, 300));
